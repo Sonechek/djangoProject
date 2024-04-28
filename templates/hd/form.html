@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Тест формы</title>
+</head>
+<body>
+    <form method="POST" action="create/">
+        {% csrf_token %}
+        <p>
+        <label>Введите сообщение</label>
+        <input type="text" name="text">
+        </p>
+        <p>
+        <label>Введите id сотрудника</label>
+        <input type="number" name="employee_id">
+        </p>
+        <p>
+        <label>Введите id специалиста</label>
+        <input type="number" name="specialist_id">
+        </p>
+        
+        <p>
+        <label>Введите дату закрытия</label>
+        <input type="datetime-local" name="date_closed">
+        </p>
+        <p>
+        <label>Введите приоритет</label>
+        <input type="number" name="priority">
+        </p>
+        <input type="submit" value="Сохранить">
+    </form>
+{% if tickets.count > 0 %}
+    <h2>Список заявок</h2>
+    <table>
+    <tr>
+        <th>ID</th>
+        <th>Текст</th>
+        <th>Сотрудник</th>
+        <th>Специалист</th>
+        <th>Приоритет</th>
+        <th>Дата открытия</th>
+        <th>Дата закрытия</th>
+    </tr>
+        {% for ticket in tickets %}
+            <tr>
+            <td>{{ ticket.id }}</td>
+            <td>{{ ticket.text }}</td>
+            <td>{{ ticket.employee_id }}</td>
+            <td>{{ ticket.specialist_id }}</td>
+            <td>{{ ticket.priority }}</td>
+            <td>{{ ticket.date_opened }}</td>
+            <td>{{ ticket.date_closed }}</td>
+            </tr>
+
+        {% endfor %}
+
+    </table>
+{% endif %}
+</body>
+</html>
