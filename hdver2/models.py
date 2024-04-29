@@ -1,3 +1,5 @@
+import datetime
+
 from django.db import models
 
 
@@ -6,8 +8,12 @@ from django.db import models
 
 class Ticket(models.Model):
     text = models.TextField()
-    employee_id = models.IntegerField()
-    specialist_id = models.IntegerField()
+    employee = models.IntegerField()
+    specialist = models.IntegerField()
     date_opened = models.DateTimeField()
-    date_closed = models.DateTimeField()
-    priority = models.IntegerField()
+    date_closed = models.DateTimeField(blank=False, null=True)
+    priority = models.IntegerField(default=3)
+    is_closed = models.BooleanField(default=0)
+
+    class Meta:
+        ordering = ["is_closed", "-date_opened"]

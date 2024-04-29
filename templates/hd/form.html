@@ -13,21 +13,15 @@
         </p>
         <p>
         <label>Введите id сотрудника</label>
-        <input type="number" name="employee_id">
+        <input type="number" name="employee">
         </p>
         <p>
         <label>Введите id специалиста</label>
-        <input type="number" name="specialist_id">
+        <input type="number" name="specialist">
         </p>
         
-        <p>
-        <label>Введите дату закрытия</label>
-        <input type="datetime-local" name="date_closed">
-        </p>
-        <p>
-        <label>Введите приоритет</label>
-        <input type="number" name="priority">
-        </p>
+        
+        
         <input type="submit" value="Сохранить">
     </form>
 {% if tickets.count > 0 %}
@@ -41,16 +35,18 @@
         <th>Приоритет</th>
         <th>Дата открытия</th>
         <th>Дата закрытия</th>
+        <th>Закрыт</th>
     </tr>
         {% for ticket in tickets %}
             <tr>
             <td>{{ ticket.id }}</td>
             <td>{{ ticket.text }}</td>
-            <td>{{ ticket.employee_id }}</td>
-            <td>{{ ticket.specialist_id }}</td>
+            <td>{{ ticket.employee }}</td>
+            <td>{{ ticket.specialist }}</td>
             <td>{{ ticket.priority }}</td>
             <td>{{ ticket.date_opened }}</td>
             <td>{{ ticket.date_closed }}</td>
+            <td>{{ ticket.is_closed }}</td>
             </tr>
 
         {% endfor %}
