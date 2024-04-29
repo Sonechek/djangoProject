@@ -20,9 +20,10 @@ from django.contrib.auth import views as auth_views
 from hdver2 import views
 
 urlpatterns = [
-    path('', views.index),
-    path('admin/', admin.site.urls),
-    path('form/', views.form),
+    path('', views.index, name='index'),
+    path('admin/', admin.site.urls, name='admin'),
+    path('form/', views.form, name='form'),
     path('form/create/', views.create),
-    path('accounts/', include('django.contrib.auth.urls')),
+    path('accounts/', include('django.contrib.auth.urls'), name='accounts'),
+    path('tickets/', views.TicketListView.as_view(), name="tickets")
 ]

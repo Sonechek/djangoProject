@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
 <head>
     <meta charset="UTF-8">
     <title>Тест формы</title>
@@ -27,7 +29,7 @@
 {% if tickets.count > 0 %}
     <h2>Список заявок</h2>
     <table>
-    <tr>
+    <tr bgcolor="aqua">
         <th>ID</th>
         <th>Текст</th>
         <th>Сотрудник</th>
