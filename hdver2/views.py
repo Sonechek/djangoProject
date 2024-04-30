@@ -1,7 +1,9 @@
 import datetime
 
+from django.contrib.auth import logout
 from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
 from django.shortcuts import render
 from .models import Ticket
 
@@ -20,14 +22,7 @@ def create(request):
     if request.method == "POST":
         ticket = Ticket()
         ticket.text = request.POST.get("text")
-        ticket.employee = request.POST.get("employee")
         ticket.specialist = request.POST.get("specialist")
         ticket.date_opened = datetime.datetime.now()
         ticket.save()
     return HttpResponseRedirect("/form")
-
-
-from django.views import generic
-
-class TicketListView(generic.ListView):
-    model = Ticket

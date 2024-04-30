@@ -25,5 +25,4 @@ urlpatterns = [
     path('form/', views.form, name='form'),
     path('form/create/', views.create),
     path('accounts/', include('django.contrib.auth.urls'), name='accounts'),
-    path('tickets/', views.TicketListView.as_view(), name="tickets")
 ]
