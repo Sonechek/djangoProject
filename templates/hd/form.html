@@ -41,7 +41,7 @@
             <tr>
             <td>{{ ticket.id }}</td>
             <td>{{ ticket.text }}</td>
-            <td>{{ ticket.employee }}</td>
+            <td>{{ ticket.employee.first_name }} {{ ticket.employee.last_name }}</td>
             <td>{{ ticket.specialist }}</td>
             <td>{{ ticket.priority }}</td>
             <td>{{ ticket.date_opened }}</td>
