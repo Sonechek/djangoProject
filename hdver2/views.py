@@ -22,7 +22,9 @@ def create(request):
     if request.method == "POST":
         ticket = Ticket()
         ticket.text = request.POST.get("text")
+        ticket.employee_id = request.user.id
         ticket.specialist = request.POST.get("specialist")
         ticket.date_opened = datetime.datetime.now()
         ticket.save()
+
     return HttpResponseRedirect("/form")
