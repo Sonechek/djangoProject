@@ -53,8 +53,7 @@ ROOT_URLCONF = 'djangoProject.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')]
-        ,
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -111,7 +110,10 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = 'hdver2/static/'
+STATIC_DIRS = [
+    os.path.join(BASE_DIR, 'hdver2/static'),
+]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
@@ -123,3 +125,6 @@ LOGIN_REDIRECT_URL = '/form'
 LOGIN_URL = '/accounts/login'
 
 LOGOUT_URL = '/logout'
+
+SESSION_COOKIE_AGE = 3600
+

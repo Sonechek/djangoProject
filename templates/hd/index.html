@@ -1,18 +1,21 @@
-{% extends "base_generic.html" %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}/">
 </head>
 <body>
-<p></p>
-Добро пожаловать на сайт технической поддержки
-
-<p>
-  <a href="/accounts/login">
-    Войти
-</a>
-</p>
+<div class="login-block">
+    <div class="login-text">
+        <p>Добро пожаловать на сайт технической поддержки</p>
+    </div>
+    <div>
+        <p>
+            <a href="/accounts/login" class="login-button">Перейти на страницу авторизации</a>
+        </p>
+    </div>
+</div>
 </body>
 </html>
