@@ -20,7 +20,7 @@
      <a>
        <form id="logout-form" method="post" action="{% url 'logout' %}">
          {% csrf_token %}
-         <button type="submit" class="btn btn-link">Выход</button>
+         <button type="submit" >Выход</button>
        </form>
     </a>
    {% else %}
@@ -31,10 +31,9 @@
         <form method="post" action="{% url 'login' %}">
             {% csrf_token %}
             <div class="login-text">
-                <p align="center">Войдите в аккаунт</p>
+                <p1 align="center">Войдите в аккаунт</p1>
                 <p>Введите ваш логин и пароль, чтобы войти в аккаунт</p>
             </div>
-
             <table>
                 <tr>
                     <td>Логин:</td>
@@ -45,7 +44,8 @@
                     <td>{{ form.password }}</td>
                 </tr>
             </table>
-            <input type="submit" value="Войти!" class="login-button"/>
+            <a ><input type="submit" class="btn" value="Войти!" /></a>
+
             <input type="hidden" name="next" value="{{ next }}" />
         </form>
     </div>
