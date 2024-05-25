@@ -27,3 +27,8 @@ def create(request):
         ticket.save()
 
     return HttpResponseRedirect("/form")
+
+
+def ticket(request):
+    tickets = Ticket.objects.all()
+    return render(request, 'hd/tickets.html', {"tickets": tickets})

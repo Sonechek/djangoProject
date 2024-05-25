@@ -6,9 +6,10 @@
     top: 0; /* Stay at the top */
     left: 0;
     font-family: "Inter-Regular", sans-serif; /* Common font */
-    background-color: #111; /* Black */
+    background-color: rgb(44, 81, 96); /* Black */
     overflow-x: hidden; /* Disable horizontal scroll */
     padding-top: 20px;
+    color: white;
 }
 
 /* The navigation menu links */
@@ -16,7 +17,7 @@
     padding: 6px 8px 6px 16px;
     text-decoration: none;
     font-size: 25px;
-    color: #818181;
+    color: white;
     display: block;
 }
 
@@ -45,16 +46,15 @@ a.login-button {
     border-radius: 5px;
     border: none;
     cursor: pointer;
-    font-family: sans-serif;
+    font-family: "Lucida Sans Unicode", serif;
     align-content: center;
-    display: flex;
     justify-content: center;
     align-items: center;
 
 }
 .ticket-send {
     display: inline-block;
-    background-color: #ca6868;
+    background-color: rgb(44, 81, 96);
     color: white;
     padding: 10px 20px;
     text-align: center;
@@ -62,15 +62,18 @@ a.login-button {
     font-size: 16px;
     border-radius: 5px;
     border: none;
-    cursor: pointer;
-    font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+    font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif, serif;
     align-content: center;
-    transform: translate(200px, 0);
     justify-content: center;
     align-items: center;
+    height: 200px;
+    width: 500px;
+    position: absolute;
+    left: 30%;
+    top: 30%;
 }
 .table-ticket {
-    font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+    font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif, serif;
     font-size: 14px;
     border-radius: 10px;
     border-spacing: 0;
@@ -88,7 +91,7 @@ TR {
     align-items: center;
 }
 TH, TD {
-    border: 1px solid gray; /* Параметры рамки */
+    border: 1px solid black; /* Параметры рамки */
     text-align: center; /* Выравнивание по центру */
     padding: 4px; /* Поля вокруг текста */
     border-top-left-radius: 5px;
@@ -97,7 +100,7 @@ TH, TD {
     border-bottom-right-radius: 5px;
 }
 TH {
-    background: #fc0; /* Цвет фона ячейки */
+    background:rgb(65, 123, 146); /* Цвет фона ячейки */
     height: 30px; /* Высота ячеек */
 }
 td.list-td {
@@ -137,12 +140,12 @@ label {
 }
 p {
     align-content: center;
-    font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif; /* Fallback to sans-serif if Inter is not available */
+    font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif, serif; /* Fallback to sans-serif if Inter is not available */
 }
 p1 {
     align-content: center;
     font-weight: bold;
-    font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif; /* Fallback to sans-serif if Inter is not available */
+    font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif, serif; /* Fallback to sans-serif if Inter is not available */
     position: absolute;
     left: 50%;
     transform: translate(-50%, -50%);

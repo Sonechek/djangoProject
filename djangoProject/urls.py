@@ -27,5 +27,6 @@ urlpatterns = [
     path('admin/', admin.site.urls, name='admin'),
     path('form/', views.form, name='form'),
     path('form/create/', views.create),
+    path('tickets', views.ticket, name='tickets'),
     path('accounts/', include('django.contrib.auth.urls'), name='accounts'),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

@@ -4,7 +4,7 @@
 <link rel="stylesheet" href="{% static 'css/styles.css' %}/">
 <head>
     <meta charset="UTF-8">
-    <title>Тест формы</title>
+    <title>Отправка заявки</title>
 </head>
 <body>
 <div class="sidenav">
@@ -14,7 +14,7 @@
      <a>
        <form id="logout-form" method="post" action="{% url 'logout' %}">
          {% csrf_token %}
-         <button type="submit">Выход</button>
+         <button type="submit" class="btn">Выход</button>
        </form>
     </a>
    {% else %}
@@ -30,35 +30,8 @@
         <input type="text" name="text">
         </p>
         <p>
-        <input type="submit" value="Сохранить">
+        <input type="submit" value="Отправить" class="btn">
     </form>
 </div>
-{% if tickets.count > 0 %}
-    <div >
-    <h2>Список заявок</h2>
-    <table class="table-ticket">
-    <tr>
-        <th>ID</th>
-        <th>Текст</th>
-        <th>Сотрудник</th>
-        <th>Приоритет</th>
-        <th>Дата открытия</th>
-        <th>Дата закрытия</th>
-        <th>Закрыт</th>
-    </tr>
-        {% for ticket in tickets %}
-            <tr>
-            <td>{{ ticket.id }}</td>
-            <td>{{ ticket.text }}</td>
-            <td>{{ ticket.employee.first_name }} {{ ticket.employee.last_name }}</td>
-            <td>{{ ticket.priority }}</td>
-            <td>{{ ticket.date_opened }}</td>
-            <td>{{ ticket.date_closed }}</td>
-            <td>{{ ticket.is_closed }}</td>
-            </tr>
-        {% endfor %}
-    </table>
-    </div>
-{% endif %}
 </body>
 </html>
