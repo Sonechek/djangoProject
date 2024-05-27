@@ -94,13 +94,10 @@ TH, TD {
     border: 1px solid black; /* Параметры рамки */
     text-align: center; /* Выравнивание по центру */
     padding: 4px; /* Поля вокруг текста */
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
+    border-radius: 5px;
 }
 TH {
-    background:rgb(65, 123, 146); /* Цвет фона ячейки */
+    background: rgb(52, 186, 239); /* Цвет фона ячейки */
     height: 30px; /* Высота ячеек */
 }
 td.list-td {

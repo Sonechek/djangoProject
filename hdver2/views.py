@@ -32,3 +32,37 @@ def create(request):
 def ticket(request):
     tickets = Ticket.objects.all()
     return render(request, 'hd/tickets.html', {"tickets": tickets})
+
+
+def delete(request, id):
+    try:
+        ticket = Ticket.objects.get(id=id)
+        ticket.delete()
+        return HttpResponseRedirect("/tickets")
+    except Ticket.DoesNotExist:
+        return HttpResponseRedirect("<h2>Заявка не найдена</h2>")
+
+
+def edit(request, id):
+    try:
+        ticket = Ticket.objects.get(id=id)
+        if request.method == "POST":
+            ticket.text = request.POST.get("text")
+            ticket.date_closed = datetime.datetime.now()
+            ticket.save()
+            return HttpResponseRedirect("/tickets")
+        else:
+            return render(request, "hd/edit.html", {'ticket': ticket})
+    except Ticket.DoesNotExist:
+        return HttpResponseRedirect("<h2>Заявка не найдена</h2>")
+
+
+def close_ticket(request, id):
+    try:
+        ticket = Ticket.objects.get(id=id)
+        ticket.is_closed = True
+        ticket.date_closed = datetime.datetime.now()
+        ticket.save()
+        return HttpResponseRedirect("/tickets")
+    except Ticket.DoesNotExist:
+        return HttpResponseRedirect("<h2>Заявка не найдена</h2>")

@@ -30,6 +30,9 @@
             <td>{{ ticket.date_opened }}</td>
             <td>{{ ticket.date_closed }}</td>
             <td>{{ ticket.is_closed }}</td>
+            <td><a href="delete/{{ ticket.id }}" class="btn">Удалить</a></td>
+            <td><a href="edit/{{ ticket.id }}" class="btn">Изменить</a></td>
+            <td><a href="close/{{ ticket.id }}" class="btn">Закрыть</a></td>
             </tr>
         {% endfor %}
     </table>

@@ -28,5 +28,8 @@ urlpatterns = [
     path('form/', views.form, name='form'),
     path('form/create/', views.create),
     path('tickets', views.ticket, name='tickets'),
+    path('edit/<int:id>/', views.edit),
+    path('delete/<int:id>/', views.delete),
+    path('close/<int:id>/', views.close_ticket),
     path('accounts/', include('django.contrib.auth.urls'), name='accounts'),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
