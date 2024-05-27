@@ -4,12 +4,19 @@
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
-<body>
-<form method="post">
+<body >
+<form method="post" >
     {% csrf_token %}
     <p>
         <label>Текст</label>
-        <input type="text" name="text">
+        <input type="text" name="text" required>
+    </p>
+    <p>
+        <label>Приоритет</label>
+        <input type="number" name="priority" required>
+    </p>
+    <p>
+        <input type="submit" value="Отправить" class="btn">
     </p>
 </form>
 </body>
