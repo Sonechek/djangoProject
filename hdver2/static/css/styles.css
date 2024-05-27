@@ -136,6 +136,7 @@ label {
     color: white;
 }
 p {
+    align: center;
     align-content: center;
     font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif, serif; /* Fallback to sans-serif if Inter is not available */
 }

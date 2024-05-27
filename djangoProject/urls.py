@@ -31,5 +31,6 @@ urlpatterns = [
     path('edit/<int:id>/', views.edit),
     path('delete/<int:id>/', views.delete),
     path('close/<int:id>/', views.close_ticket),
+    path('reports/', views.reports),
     path('accounts/', include('django.contrib.auth.urls'), name='accounts'),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

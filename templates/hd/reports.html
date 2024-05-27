@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Отчеты</title>
+    {% load static %}
+    <script src="https://www.kryogenix.org/code/browser/sorttable/sorttable.js"></script>
+</head>
+<body>
+<div>
+    <form method="POST">
+        {% csrf_token %}
+        <p>
+        <label>Укажите промежуток</label>
+        <input type="datetime-local" name="start_date" required>
+        </p>
+        <p>
+        <p>
+        <input type="datetime-local" name="end_date" required>
+        </p>
+        <input type="submit" value="Получить" class="btn">
+    </form>
+</div>
+<table class="sortable">
+    <tr>
+        <th>ID</th>
+        <th>Текст</th>
+        <th>Сотрудник</th>
+        <th>Приоритет</th>
+        <th>Дата открытия</th>
+        <th>Дата закрытия</th>
+        <th>Закрыт</th>
+    </tr>
+        {% for ticket in tickets %}
+            <tr>
+            <td>{{ ticket.id }}</td>
+            <td>{{ ticket.text }}</td>
+            <td>{{ ticket.employee.first_name }} {{ ticket.employee.last_name }}</td>
+            <td>{{ ticket.priority }}</td>
+            <td>{{ ticket.date_opened }}</td>
+            <td>{{ ticket.date_closed }}</td>
+            <td>{{ ticket.is_closed }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+<p>
+    Итого заявок за указанный промежуток {{ tickets_count }}
+    Итого закрытых заявок за указанный промежуток {{ tickets_closed_count }}
+</p>
+</body>
+</html>
