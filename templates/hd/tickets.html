@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-{% load static %}
-<link rel="stylesheet" href="{% static 'css/styles.css' %}/">
-<script src="https://www.kryogenix.org/code/browser/sorttable/sorttable.js"></script>
+<link rel="stylesheet" href="C:\Users\user\Desktop\djangoProject\hdver2\static\css\styles.css">
 <head>
     <meta charset="UTF-8">
     <title>Полученные заявки</title>
@@ -11,7 +9,7 @@
 {% if tickets.count > 0 %}
     <div >
     <h2 align="center">Список заявок</h2>
-    <table class="sortable">
+    <table class="table-ticket">
     <tr>
         <th>ID</th>
         <th>Текст</th>
@@ -30,9 +28,6 @@
             <td>{{ ticket.date_opened }}</td>
             <td>{{ ticket.date_closed }}</td>
             <td>{{ ticket.is_closed }}</td>
-            <td><a href="delete/{{ ticket.id }}" class="btn">Удалить</a></td>
-            <td><a href="edit/{{ ticket.id }}" class="btn">Изменить</a></td>
-            <td><a href="close/{{ ticket.id }}" class="btn">Закрыть</a></td>
             </tr>
         {% endfor %}
     </table>
