@@ -83,4 +83,5 @@ def reports(request):
                 tickets_closed_count += 1
         return render(request, 'hd/reports.html', {'tickets': tickets, 'tickets_count': tickets_count, 'tickets_closed_count': tickets_closed_count})
     else:
-        return render(request, 'hd/reports.html', {'ticket':tickets} )
+
+        return render(request, 'hd/reports.html', {'ticket': tickets})
