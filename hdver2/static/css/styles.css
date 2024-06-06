@@ -6,7 +6,7 @@
     top: 0; /* Stay at the top */
     left: 0;
     font-family: "Inter-Regular", sans-serif; /* Common font */
-    background-color: rgb(35, 174, 232); /* Black */
+    background-color: rgb(35, 35, 35); /* Black */
     overflow-x: hidden; /* Disable horizontal scroll */
     padding-top: 20px;
     color: white;
@@ -54,7 +54,7 @@ a.login-button {
 }
 .ticket-send {
     display: inline-block;
-    background-color: rgb(44, 81, 96);
+    background-color: rgb(92, 92, 92);
     color: white;
     padding: 10px 20px;
     text-align: center;
@@ -72,7 +72,7 @@ a.login-button {
     left: 30%;
     top: 30%;
 }
-.table-ticket {
+.sortable {
     font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif, serif;
     font-size: 14px;
     border-radius: 10px;
@@ -97,7 +97,7 @@ TH, TD {
     border-radius: 5px;
 }
 TH {
-    background: rgb(52, 186, 239); /* Цвет фона ячейки */
+    background: rgb(120, 248, 177); /* Цвет фона ячейки */
     height: 30px; /* Высота ячеек */
 }
 td.list-td {
@@ -147,4 +147,8 @@ p1 {
     position: absolute;
     left: 50%;
     transform: translate(-50%, -50%);
+}
+.input-text{
+    width: 250px;
+    height: 50px;
 }

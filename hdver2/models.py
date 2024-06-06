@@ -1,10 +1,5 @@
-import datetime
-
 from django.db import models
 from django.contrib.auth.models import User
-
-
-# Create your models here.
 
 
 class Ticket(models.Model):
@@ -16,4 +11,4 @@ class Ticket(models.Model):
     is_closed = models.BooleanField(default=0)
 
     class Meta:
-        ordering = ["is_closed", "-date_opened"]
+        ordering = ["is_closed", "-date_opened", "-priority"]

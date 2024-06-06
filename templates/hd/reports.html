@@ -4,26 +4,46 @@
     <meta charset="UTF-8">
     <title>Отчеты</title>
     {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}/">
     <script src="https://www.kryogenix.org/code/browser/sorttable/sorttable.js"></script>
 </head>
 <body>
+<div class="sidenav">
+    <a href="{% url 'index' %}">Домашняя страница</a>
+    <a href="{% url 'tickets'%}">Заявки</a>
+    <a href="{% url 'reports'%}">Отчеты</a>
+    {% if user.is_authenticated %}
+     <a>Пользователь: {{ user.get_username }}</a>
+     <a>
+       <form id="logout-form" method="post" action="{% url 'logout' %}">
+         {% csrf_token %}
+
+         <button type="submit" class="btn">Выход</button>
+       </form>
+    </a>
+   {% else %}
+     <a><a href="{% url 'login'%}?next={{request.path}}">Войти</a></a>
+   {% endif %}
+</div>
 <div>
     <form method="POST">
         {% csrf_token %}
-        <p>
-        <label>Укажите промежуток</label>
+        <p align="center">
+            Укажите начальную датуру
         <input type="datetime-local" name="start_date" required>
         </p>
         <p>
-        <p>
+        <p align="center">
+        Укажите конечную дату
         <input type="datetime-local" name="end_date" required>
         </p>
-        <p>
-            <input type="checkbox" name="is_closed">
-        </p>
         <input type="submit" value="Получить" class="btn">
+        <p>
+                
+        </p>
     </form>
 </div>
+{% if tickets.count > 0 %}
 <table class="sortable">
     <tr>
         <th>ID</th>
@@ -33,6 +53,7 @@
         <th>Дата открытия</th>
         <th>Дата закрытия</th>
         <th>Закрыт</th>
+        
     </tr>
         {% for ticket in tickets %}
             <tr>
@@ -46,7 +67,8 @@
             </tr>
         {% endfor %}
     </table>
-<p>
+{% endif %}
+<p align="center">
     Итого заявок за указанный промежуток {{ tickets_count }}
     Итого закрытых заявок за указанный промежуток {{ tickets_closed_count }}
 </p>

@@ -1,4 +1,6 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/styles.css' %}/">
 {% block content %}
 <p>Выходим!</p>
-<a href="{% url 'login' %}">Нажмите здесь, чтобы заново войти.</a>
+<a href="{% url 'login' %}" class="login-button">Нажмите здесь, чтобы заново войти.</a>
 {% endblock %}

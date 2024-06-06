@@ -1,6 +1,5 @@
 import datetime
 
-from django.contrib.auth import logout
 from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required, permission_required
 from django.shortcuts import render
@@ -33,7 +32,7 @@ def ticket(request):
     return render(request, 'hd/tickets.html', {"tickets": tickets})
 
 
-@permission_required('ticket.delete')
+@permission_required('admin')
 def delete(request, id):
     try:
         ticket = Ticket.objects.get(id=id)
@@ -43,7 +42,7 @@ def delete(request, id):
         return HttpResponseRedirect("<h2>Заявка не найдена</h2>")
 
 
-@permission_required('ticket.edit')
+@permission_required('admin')
 def edit(request, id):
     try:
         ticket = Ticket.objects.get(id=id)
@@ -58,7 +57,7 @@ def edit(request, id):
         return HttpResponseRedirect("<h2>Заявка не найдена</h2>")
 
 
-@permission_required('ticket.edit')
+@permission_required('admin')
 def close_ticket(request, id):
     try:
         ticket = Ticket.objects.get(id=id)
@@ -73,7 +72,11 @@ def close_ticket(request, id):
 @permission_required('admin')
 def reports(request):
     tickets = Ticket.objects.all()
-    today = datetime.datetime.now()
+    tickets_count = tickets.count()
+    tickets_closed_count = 0
+    for ticket in tickets:
+        if ticket.is_closed:
+            tickets_closed_count += 1
     if request.method == 'POST':
         tickets = Ticket.objects.filter(date_opened__range=(request.POST.get('start_date'), request.POST.get('end_date')))
         tickets_count = tickets.count()
@@ -83,5 +86,4 @@ def reports(request):
                 tickets_closed_count += 1
         return render(request, 'hd/reports.html', {'tickets': tickets, 'tickets_count': tickets_count, 'tickets_closed_count': tickets_closed_count})
     else:
-
-        return render(request, 'hd/reports.html', {'ticket': tickets})
+        return render(request, 'hd/reports.html', {'tickets': tickets, 'tickets_count': tickets_count, 'tickets_closed_count': tickets_closed_count})

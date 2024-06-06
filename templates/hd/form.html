@@ -8,12 +8,15 @@
 </head>
 <body>
 <div class="sidenav">
-      <a href="{% url 'index' %}">Домашняя страница</a>
+    <a href="{% url 'index' %}">Домашняя страница</a>
+    <a href="{% url 'tickets'%}">Заявки</a>
+    <a href="{% url 'reports'%}">Отчеты</a>
     {% if user.is_authenticated %}
      <a>Пользователь: {{ user.get_username }}</a>
      <a>
        <form id="logout-form" method="post" action="{% url 'logout' %}">
          {% csrf_token %}
+
          <button type="submit" class="btn">Выход</button>
        </form>
     </a>
@@ -27,7 +30,7 @@
         
         <p>
         <label>Введите сообщение</label>
-        <input type="text" name="text" required>
+            <textarea name="text" required rows="4" cols="50"></textarea>
         </p>
         <p>
         <input type="submit" value="Отправить" class="btn">
