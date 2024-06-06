@@ -53,6 +53,7 @@
         <th>Дата открытия</th>
         <th>Дата закрытия</th>
         <th>Закрыт</th>
+        <th>Специалист</th>
         
     </tr>
         {% for ticket in tickets %}
@@ -64,6 +65,8 @@
             <td>{{ ticket.date_opened }}</td>
             <td>{{ ticket.date_closed }}</td>
             <td>{{ ticket.is_closed }}</td>
+                            <td>{{ ticket.specialist.first_name }} {{ ticket.specialist.last_name }}</td>
+
             </tr>
         {% endfor %}
     </table>

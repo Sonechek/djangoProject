@@ -36,6 +36,7 @@
         <th>Приоритет</th>
         <th>Дата открытия</th>
         <th>Дата закрытия</th>
+        <th>Специалист</th>
         <th>Закрыт</th>
         <th>Редактировать</th>
         <th>Удалить</th>
@@ -49,6 +50,7 @@
             <td>{{ ticket.priority }}</td>
             <td>{{ ticket.date_opened }}</td>
             <td>{{ ticket.date_closed }}</td>
+                <td>{{ ticket.specialist.first_name }} {{ ticket.specialist.last_name }}</td>
             <td>{{ ticket.is_closed }}</td>
             <td><a href="{% url 'edit' ticket.id %}" class="btn">Изменить</a></td>
             <td><a href="{% url 'delete' ticket.id %}" class="btn">Удалить</a></td>
