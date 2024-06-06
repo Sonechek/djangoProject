@@ -2,7 +2,7 @@ import datetime
 
 from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required, permission_required
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Ticket
 from django.contrib.auth.models import User
 
@@ -14,8 +14,7 @@ def index(request):
 
 @permission_required('hdver2.add_ticket')
 def form(request):
-    tickets = Ticket.objects.all()
-    return render(request, 'hd/form.html', {"tickets": tickets})
+    return render(request, 'hd/form.html')
 
 
 @permission_required('hdver2.add_ticket')
@@ -26,8 +25,7 @@ def create(request):
         ticket.employee_id = request.user.id
         ticket.date_opened = datetime.datetime.now()
         ticket.save()
-
-    return HttpResponseRedirect("/form")
+    return redirect('index')
 
 @permission_required('admin')
 def ticket(request):
