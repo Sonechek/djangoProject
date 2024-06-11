@@ -7,7 +7,6 @@ from .models import Ticket
 from django.contrib.auth.models import User
 
 
-
 def index(request):
     return render(request, 'hd/index.html')
 
@@ -26,6 +25,7 @@ def create(request):
         ticket.date_opened = datetime.datetime.now()
         ticket.save()
     return redirect('index')
+
 
 @permission_required('admin')
 def ticket(request):
